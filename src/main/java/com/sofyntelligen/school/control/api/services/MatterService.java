@@ -1,6 +1,5 @@
 package com.sofyntelligen.school.control.api.services;
 
-import com.sofyntelligen.school.control.api.model.entity.Matter;
 import com.sofyntelligen.school.control.api.repositories.MatterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,5 @@
 package com.sofyntelligen.school.control.api.web.controller;
 
-import com.sofyntelligen.school.control.api.model.entity.Matter;
 import com.sofyntelligen.school.control.api.services.MapValidationErrorService;
 import com.sofyntelligen.school.control.api.services.MatterService;
 import com.sofyntelligen.school.control.api.util.Util;
