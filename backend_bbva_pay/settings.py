@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-t2)x-h$zkbo!!hwf_(*m^r1sh#u(!io!2q93kxl=#wn1p%of0l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['backend-bbva-pay-env.eba-2qdwrfdx.us-west-2.elasticbeanstalk.com']
-
 
 # Application definition
 
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'backend_bbva_pay.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Pacific'
 
 USE_I18N = True
 
@@ -118,6 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
