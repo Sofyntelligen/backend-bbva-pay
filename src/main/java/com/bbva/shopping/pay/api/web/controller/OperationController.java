@@ -69,4 +69,23 @@ public class OperationController {
         return responseEntity;
 
     }
+
+    @PatchMapping(path="/{token}/{id}")
+    public ResponseEntity<?>  getOperation(@PathVariable("token") String token, @PathVariable("id") String id) {
+
+        Optional<Operation> operationOptional = this.operationServices.findById(token);
+        ResponseEntity<?> responseEntity = null;
+
+        if (operationOptional.isPresent()) {
+            Operation operation = operationOptional.get();
+            operation.setActive(Boolean.TRUE);
+            operation.setCard(new Card(id));
+            responseEntity = new ResponseEntity(this.operationServices.operationSaveAndUpdate(operation), HttpStatus.OK);
+        } else {
+            responseEntity = new ResponseEntity("Operation with not exist.", HttpStatus.NOT_FOUND);
+        }
+
+        return responseEntity;
+
+    }
 }
