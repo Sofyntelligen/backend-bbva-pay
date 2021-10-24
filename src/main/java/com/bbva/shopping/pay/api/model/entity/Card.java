@@ -1,10 +1,8 @@
 package com.bbva.shopping.pay.api.model.entity;
 
 import com.bbva.shopping.pay.api.model.dto.enums.TypeCards;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
