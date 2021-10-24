@@ -95,4 +95,17 @@ public class Company {
     public void setListOperation(List<Operation> listOperation) {
         this.listOperation = listOperation;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", rfc='" + rfc + '\'' +
+                ", active=" + active +
+                ", card=" + card +
+                ", listOperation=" + listOperation +
+                '}';
+    }
 }

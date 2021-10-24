@@ -135,4 +135,20 @@ public class User implements Serializable {
     public void setListCard(List<Card> listCard) {
         this.listCard = listCard;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", gender=" + gender +
+                ", listCard=" + listCard +
+                '}';
+    }
 }

@@ -101,4 +101,17 @@ public class Operation {
     public void setListDetailtsOperation(List<DetailtsOperation> listDetailtsOperation) {
         this.listDetailtsOperation = listDetailtsOperation;
     }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "id='" + id + '\'' +
+                ", transaction='" + transaction + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", total=" + total +
+                ", company=" + company +
+                ", card=" + card +
+                ", listDetailtsOperation=" + listDetailtsOperation +
+                '}';
+    }
 }

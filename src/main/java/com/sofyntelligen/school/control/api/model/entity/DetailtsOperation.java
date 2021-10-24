@@ -72,4 +72,15 @@ public class DetailtsOperation {
     public void setOperation(Operation operation) {
         this.operation = operation;
     }
+
+    @Override
+    public String toString() {
+        return "DetailtsOperation{" +
+                "id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                ", amount='" + amount + '\'' +
+                ", price=" + price +
+                ", operation=" + operation +
+                '}';
+    }
 }

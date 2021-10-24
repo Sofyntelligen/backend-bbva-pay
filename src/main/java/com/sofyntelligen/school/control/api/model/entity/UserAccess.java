@@ -30,8 +30,7 @@ public class UserAccess {
 
     private Date create_At;
     private Date update_At;
-
-
+    
     public UserAccess() {
     }
 
@@ -85,4 +84,14 @@ public class UserAccess {
         this.update_At = new Date();
     }
 
+    @Override
+    public String toString() {
+        return "UserAccess{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", create_At=" + create_At +
+                ", update_At=" + update_At +
+                '}';
+    }
 }
