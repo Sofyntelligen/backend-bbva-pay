@@ -28,9 +28,6 @@ public class UserAccess {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Transient
-    private String confirmPassword;
-
     private Date create_At;
     private Date update_At;
 
@@ -60,14 +57,6 @@ public class UserAccess {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public Date getCreate_At() {
