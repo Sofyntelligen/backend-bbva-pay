@@ -1,6 +1,7 @@
 package com.bbva.shopping.pay.api.model.entity;
 
 import com.bbva.shopping.pay.api.model.dto.enums.TypeCards;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
@@ -59,6 +60,11 @@ public class Card {
     private List<Operation> listOperation;
 
     public Card() {
+    }
+
+    @JsonCreator
+    public Card(String id) {
+        this.id = id;
     }
 
     public Card(String number, LocalDate dateExpiration, Integer cvv, BigDecimal limitCredit, BigDecimal availableCredit, BigDecimal userCredit, TypeCards typeCards, User user) {

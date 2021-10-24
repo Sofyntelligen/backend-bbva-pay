@@ -33,9 +33,8 @@ public class Operation {
     @Column(name = "total")
     private BigDecimal total;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_company")
-    @JsonIgnore
     private Company company;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

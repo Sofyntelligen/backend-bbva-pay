@@ -36,6 +36,8 @@ public class OperationController {
 
         if (responseEntity == null) {
             
+            System.out.println(operation.toString());
+            
             operation.setTransaction(UUID.randomUUID().toString());
             Operation resultOperation = this.operationServices.operationSaveAndUpdate(operation);
             

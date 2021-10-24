@@ -29,4 +29,12 @@ public class CardController {
         
     }
 
+    @GetMapping(path = "/")
+    public ResponseEntity<?> getCards() {
+
+        Iterable<Card> cardOptional = this.cardServices.findAll();
+        return new ResponseEntity(cardOptional, HttpStatus.OK);
+
+    }
+
 }

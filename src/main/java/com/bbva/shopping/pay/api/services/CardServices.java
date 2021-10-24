@@ -18,4 +18,9 @@ public class CardServices {
     public List<Card> findAllByUser(User user) {
         return this.cardRerpository.findAllByUser(user);
     }
+
+    public Iterable<Card> findAll() {
+        return this.cardRerpository.findAll();
+    }
+
 }

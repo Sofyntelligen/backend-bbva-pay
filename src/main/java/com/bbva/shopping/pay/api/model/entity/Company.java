@@ -1,6 +1,8 @@
 package com.bbva.shopping.pay.api.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -29,14 +31,24 @@ public class Company {
     private String rfc;
 
     @Column(name = "active")
+    @JsonIgnore
     private Boolean active;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "id_card")
     private Card card;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Operation> listOperation;
+
+    public Company() {
+    }
+
+    @JsonCreator
+    public Company(String id) {
+        this.id = id;
+    }
 
     public String getId() {
         return id;

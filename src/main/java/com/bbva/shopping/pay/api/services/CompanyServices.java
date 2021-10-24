@@ -15,4 +15,9 @@ public class CompanyServices {
         return this.companyRepository.save(company);
     }
 
+    public Iterable<Company> findAll() {
+        return this.companyRepository.findAll();
+    }
+
+
 }
