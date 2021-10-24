@@ -39,6 +39,7 @@ public class OperationController {
             System.out.println(operation.toString());
             
             operation.setTransaction(UUID.randomUUID().toString());
+            operation.setActive(Boolean.FALSE);
             Operation resultOperation = this.operationServices.operationSaveAndUpdate(operation);
             
             for (DetailtsOperation detailtsOperation : operation.getOperation()) {

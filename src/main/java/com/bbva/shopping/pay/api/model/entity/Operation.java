@@ -33,6 +33,10 @@ public class Operation {
     @Column(name = "total")
     private BigDecimal total;
 
+    @Column(name = "active")
+    @JsonIgnore
+    private Boolean active;
+
     @ManyToOne
     @JoinColumn(name = "id_company")
     private Company company;
@@ -77,6 +81,14 @@ public class Operation {
         this.total = total;
     }
 
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
     public Company getCompany() {
         return company;
     }
@@ -108,6 +120,7 @@ public class Operation {
                 ", transaction='" + transaction + '\'' +
                 ", releaseDate=" + releaseDate +
                 ", total=" + total +
+                ", active=" + active +
                 ", company=" + company +
                 ", card=" + card +
                 ", operation=" + operation +
