@@ -12,6 +12,7 @@ public class OperationServices {
     private OperationReposotory operationReposotory;
     
     public Operation operationSaveAndUpdate(Operation operation) {
+        System.out.println("\n" + operation.toString());
         return this.operationReposotory.save(operation);
     }
 

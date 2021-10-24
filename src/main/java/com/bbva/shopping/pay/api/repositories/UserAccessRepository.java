@@ -12,6 +12,6 @@ public interface UserAccessRepository extends CrudRepository<UserAccess, String>
     @Override
     UserAccess save(UserAccess userAccess);
     
-    Optional<UserAccess> findByUsernameAndPassword(String username, String password);
+    Optional<UserAccess> findByUsernameEqualsAndPasswordEquals(String username, String password);
 
 }

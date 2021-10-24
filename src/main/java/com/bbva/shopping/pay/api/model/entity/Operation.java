@@ -2,6 +2,7 @@ package com.bbva.shopping.pay.api.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class Operation {
     private String id;
     
     @Column(name = "transaction")
+    @JsonIgnore
     private String transaction;
     
     @Column(name = "releaseDate")
@@ -32,17 +34,16 @@ public class Operation {
     @Column(name = "total")
     private BigDecimal total;
 
-    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_company")
+    @JsonIgnore
     private Company company;
 
-    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_card")
+    @JsonIgnore
     private Card card;
     
-    @JsonBackReference
     @OneToMany(mappedBy = "operation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DetailtsOperation> listDetailtsOperation;
 

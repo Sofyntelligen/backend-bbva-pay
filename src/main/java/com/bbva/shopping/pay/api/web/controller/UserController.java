@@ -56,5 +56,13 @@ public class UserController {
         return responseEntity;
     }
 
+    @GetMapping(path = "/")
+    public ResponseEntity<?> getUsers() {
+
+        Iterable<User> userOptional = this.userServices.findAll();
+        return new ResponseEntity(userOptional, HttpStatus.OK);
+       
+    }
+
 
 }

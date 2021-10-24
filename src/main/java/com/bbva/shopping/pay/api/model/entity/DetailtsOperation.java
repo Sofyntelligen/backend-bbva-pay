@@ -1,6 +1,7 @@
 package com.bbva.shopping.pay.api.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -28,9 +29,9 @@ public class DetailtsOperation {
     @Column(name = "price")
     private BigDecimal price;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_operation")
+    @JsonIgnore
     private Operation operation;
 
     public String getId() {

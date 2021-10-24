@@ -31,12 +31,10 @@ public class Company {
     @Column(name = "active")
     private Boolean active;
 
-    @JsonBackReference
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_card")
     private Card card;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Operation> listOperation;
 

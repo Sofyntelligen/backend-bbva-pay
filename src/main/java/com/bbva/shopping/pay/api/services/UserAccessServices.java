@@ -14,6 +14,6 @@ public class UserAccessServices {
     private UserAccessRepository userAccessRepository;
 
     public Optional<UserAccess> findByUsernameAndPassword(String username, String password) {
-        return this.userAccessRepository.findByUsernameAndPassword(username, password);
+        return this.userAccessRepository.findByUsernameEqualsAndPasswordEquals(username, password);
     }
 }

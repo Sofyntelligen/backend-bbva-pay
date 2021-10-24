@@ -14,4 +14,5 @@ public interface UserRepository extends CrudRepository<User, String>, GenericRep
 
     @Override
     Optional<User> findById(String id);
+    
 }
