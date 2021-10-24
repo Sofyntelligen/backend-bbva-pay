@@ -1,5 +1,6 @@
 package com.bbva.shopping.pay.api.model.entity;
 
+import com.bbva.shopping.pay.api.model.dto.enums.TypeCards;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,31 +35,44 @@ public class Card {
     @Column(name = "cvv")
     private Integer cvv;
 
-    @Column(name = "limitCredit")
+    @Column(name = "limit_credit")
     private BigDecimal limitCredit;
+    
+    @Column(name = "available_credit")
+    private BigDecimal  availableCredit;
 
-    @Column(name = "amount")
-    private BigDecimal  amount;
-
-    @Column(name = "balance")
-    private BigDecimal  balance;
+    @Column(name = "user_credit")
+    private BigDecimal  userCredit;
 
     @Column(name = "type")
-    private com.bbva.shopping.pay.api.model.dto.enums.TypeCards TypeCards;
+    private TypeCards typeCards;
     
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_user")
+    @JsonIgnore
     private User user;
 
-    @JsonManagedReference
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "card", orphanRemoval = true)
     @JsonIgnore
     private Company company;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Operation> listOperation;
+
+    public Card() {
+    }
+
+    public Card(String number, LocalDate dateExpiration, Integer cvv, BigDecimal limitCredit, BigDecimal availableCredit, BigDecimal userCredit, TypeCards typeCards, User user) {
+        this.number = number;
+        this.dateExpiration = dateExpiration;
+        this.cvv = cvv;
+        this.limitCredit = limitCredit;
+        this.availableCredit = availableCredit;
+        this.userCredit = userCredit;
+        this.typeCards = typeCards;
+        this.user = user;
+    }
 
     public String getId() {
         return id;
@@ -100,28 +114,28 @@ public class Card {
         this.limitCredit = limitCredit;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public BigDecimal getAvailableCredit() {
+        return availableCredit;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setAvailableCredit(BigDecimal availableCredit) {
+        this.availableCredit = availableCredit;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
+    public BigDecimal getUserCredit() {
+        return userCredit;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+    public void setUserCredit(BigDecimal userCredit) {
+        this.userCredit = userCredit;
     }
 
-    public com.bbva.shopping.pay.api.model.dto.enums.TypeCards getTypeCards() {
-        return TypeCards;
+    public TypeCards getTypeCards() {
+        return typeCards;
     }
 
-    public void setTypeCards(com.bbva.shopping.pay.api.model.dto.enums.TypeCards typeCards) {
-        TypeCards = typeCards;
+    public void setTypeCards(TypeCards typeCards) {
+        this.typeCards = typeCards;
     }
 
     public User getUser() {
@@ -140,6 +154,14 @@ public class Card {
         this.company = company;
     }
 
+    public List<Operation> getListOperation() {
+        return listOperation;
+    }
+
+    public void setListOperation(List<Operation> listOperation) {
+        this.listOperation = listOperation;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
@@ -148,9 +170,9 @@ public class Card {
                 ", dateExpiration=" + dateExpiration +
                 ", cvv=" + cvv +
                 ", limitCredit=" + limitCredit +
-                ", amount=" + amount +
-                ", balance=" + balance +
-                ", TypeCards=" + TypeCards +
+                ", availableCredit=" + availableCredit +
+                ", userCredit=" + userCredit +
+                ", typeCards=" + typeCards +
                 ", user=" + user +
                 ", company=" + company +
                 ", listOperation=" + listOperation +

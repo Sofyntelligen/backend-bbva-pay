@@ -2,6 +2,7 @@ package com.bbva.shopping.pay.api.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -50,9 +51,24 @@ public class User implements Serializable {
     @Column(name= "gender")
     private Boolean gender;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Card> listCard;
+    
+    public User() {
+        
+    }
+
+    public User(String name, String lastname, Integer age, LocalDate birthday, @Size(min = 1, max = 250) String address, @Size(min = 1, max = 60) String email, String phone, Boolean gender) {
+        this.name = name;
+        this.lastname = lastname;
+        this.age = age;
+        this.birthday = birthday;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+        this.gender = gender;
+    }
 
     public String getId() {
         return id;
