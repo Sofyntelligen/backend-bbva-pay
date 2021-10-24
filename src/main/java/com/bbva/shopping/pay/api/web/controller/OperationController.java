@@ -1,6 +1,7 @@
 package com.bbva.shopping.pay.api.web.controller;
 
 import com.bbva.shopping.pay.api.model.entity.Operation;
+import com.bbva.shopping.pay.api.model.entity.Token;
 import com.bbva.shopping.pay.api.services.MapValidationErrorService;
 import com.bbva.shopping.pay.api.services.OperationServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class OperationController {
             
             operation.setTransaction(UUID.randomUUID().toString());
             Operation resultOperation = this.operationServices.operationSaveAndUpdate(operation);
-            responseEntity = new ResponseEntity<>(operation.getId(), HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<>(new Token(resultOperation.getId()), HttpStatus.CREATED);
 
         }
 
