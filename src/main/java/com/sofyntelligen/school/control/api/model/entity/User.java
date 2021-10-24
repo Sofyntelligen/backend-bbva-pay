@@ -49,16 +49,6 @@ public class User implements Serializable {
 
     @Column(name= "gender", nullable = false)
     private Boolean gender;
-
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
-    @JsonIgnore
-    private Student student;
-
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
-    @JsonIgnore
-    private Teacher teacher;
-
+    
 
 }

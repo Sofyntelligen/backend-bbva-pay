@@ -1,17 +1,13 @@
 package com.sofyntelligen.school.control.api.repositories;
 
+import com.sofyntelligen.school.control.api.model.entity.Card;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface MatterRepository extends CrudRepository<Matter, String>, GenericRepository<Matter> {
+public interface MatterRepository extends CrudRepository<Card, String>, GenericRepository<Card> {
 
-    @Override
-    Matter save(Matter matter);
-
-    @Override
-    Optional<Matter> findById(String id);
 
 }
