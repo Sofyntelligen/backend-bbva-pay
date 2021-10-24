@@ -1,6 +1,5 @@
 package com.bbva.shopping.pay.api.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
@@ -43,9 +42,9 @@ public class Operation {
     @JoinColumn(name = "id_card")
     @JsonIgnore
     private Card card;
-    
+
     @OneToMany(mappedBy = "operation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<DetailtsOperation> listDetailtsOperation;
+    private List<DetailtsOperation> operation;
 
     public String getId() {
         return id;
@@ -95,12 +94,12 @@ public class Operation {
         this.card = card;
     }
 
-    public List<DetailtsOperation> getListDetailtsOperation() {
-        return listDetailtsOperation;
+    public List<DetailtsOperation> getOperation() {
+        return operation;
     }
 
-    public void setListDetailtsOperation(List<DetailtsOperation> listDetailtsOperation) {
-        this.listDetailtsOperation = listDetailtsOperation;
+    public void setOperation(List<DetailtsOperation> operation) {
+        this.operation = operation;
     }
 
     @Override
@@ -112,7 +111,7 @@ public class Operation {
                 ", total=" + total +
                 ", company=" + company +
                 ", card=" + card +
-                ", listDetailtsOperation=" + listDetailtsOperation +
+                ", operation=" + operation +
                 '}';
     }
 }

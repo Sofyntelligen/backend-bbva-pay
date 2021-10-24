@@ -1,6 +1,7 @@
 package com.bbva.shopping.pay.api.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -33,6 +34,16 @@ public class DetailtsOperation {
     @JoinColumn(name = "id_operation")
     @JsonIgnore
     private Operation operation;
+
+    public DetailtsOperation() {
+    }
+
+    @JsonCreator
+    public DetailtsOperation(String description, String amount, BigDecimal price) {
+        this.description = description;
+        this.amount = amount;
+        this.price = price;
+    }
 
     public String getId() {
         return id;
